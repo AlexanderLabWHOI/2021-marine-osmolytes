@@ -1,0 +1,71 @@
+configfile: "config.yaml"
+import glob
+import io
+import os
+import pandas as pd
+import numpy as np
+import pathlib
+from snakemake.exceptions import print_exception, WorkflowError
+
+BACT_ACCESSION_LIST = config['bacterial_accession']
+BACT_GENOMES_DIR = config['bacterial_genomes_directory']
+OUTDIR = config['output_directory']
+BACT_GENOMES, = glob_wildcards(os.path.join(BACT_GENOMES_DIR,"{genome}.faa"))
+SCRATCHDIR = config['scratch_directory']
+METABOLITE_DIR = config['metabolite_directory']
+METABOLITES, = glob_wildcards(os.path.join(METABOLITE_DIR, '{metabolite}'))
+MET_DICT = {}
+KO_FAM_DIR = config['kofamscan_db']
+
+for i in METABOLITES: 
+    MET_GENES = list(pd.read_csv(os.path.join(METABOLITE_DIR, i), header=None)[0])
+    MET_DICT[i]=MET_GENES
+
+
+rule all:
+    input:
+        expand(os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}','done'), metabolite = METABOLITES, genome  = BACT_GENOMES), 
+        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome  = BACT_GENOMES),
+        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}.csv'), metabolite = METABOLITES),
+        os.path.join('GToBacterialTree2', 'GToBacterialTree2.tre')
+rule kofamscan:
+    input: genome = os.path.join(BACT_GENOMES_DIR, '{genome}.faa'), metabolite_file = os.path.join(METABOLITE_DIR, '{metabolite}') 
+    output: final = os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}', 'done'), 
+    threads: 15
+    conda: 'envs/kofamscan.yaml'
+    params: tempdir=os.path.join(OUTDIR, 'ko_hmms', '{metabolite}','{genome}')+'/', kofam_dir = os.path.join(KO_FAM_DIR, 'profiles')+'/'
+    shell:
+        '''
+        mkdir -p {params.tempdir}
+        for x in $(cat {input.metabolite_file})
+            do
+            hmmsearch -o /dev/null --tblout {params.tempdir}$x -T 0 --cpu 1 {params.kofam_dir}$x.hmm {input.genome} 
+        done
+        touch {output}
+        '''
+
+rule parse_hmmsearch:
+    input: os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}', 'done')
+    output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv')
+    params: os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}')
+    conda:
+        "envs/biopython.yaml"
+    script:
+        "scripts/parse_hmmsearch.py"
+
+rule create_genome_table:
+    input: expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome = BACT_GENOMES)
+    output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}.csv') 
+    params: os.path.join(OUTDIR, 'ko_tables')
+    script:
+        "scripts/combine_kotables.py"
+
+rule create_phylogeny:
+    input: BACT_ACCESSION_LIST 
+    output: os.path.join('GToBacterialTree2', 'GToBacterialTree2.tre') 
+    params: other = '-H Universal', out = 'GToBacterialTree2'
+    conda: 'gtotree.yaml'
+    shell:
+        """
+        GToTree -a {input} {params.other} -t -j 50 -o {params.out}
+        """

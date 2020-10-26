@@ -1,0 +1,6 @@
+bacterial_genomes_directory: MarRef_DBs/proteins
+output_directory: kofamscan
+scratch_directory: /vortexfs1/scratch/halexander
+kofamscan_db: /vortexfs1/home/halexander/kofamscan/db/
+metabolite_directory: metabolites/
+bacterial_accession: MarRef_DBs/MarRef_accessions_GenBank_only.txt 
