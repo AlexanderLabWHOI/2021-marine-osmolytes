@@ -10,12 +10,17 @@ from snakemake.exceptions import print_exception, WorkflowError
 BACT_ACCESSION_LIST = config['bacterial_accession']
 BACT_GENOMES_DIR = config['bacterial_genomes_directory']
 OUTDIR = config['output_directory']
+MMETSP_DIR = config['mmetsp_directory']
+
 BACT_GENOMES, = glob_wildcards(os.path.join(BACT_GENOMES_DIR,"{genome}.faa"))
+MMETSP_TRANS, = glob_wildcards(os.path.join(MMETSP_DIR, "{mmetsp}.pep.fa"))
+MMETSP_TRANS.remove('MMETSP-reference')
 SCRATCHDIR = config['scratch_directory']
 METABOLITE_DIR = config['metabolite_directory']
 METABOLITES, = glob_wildcards(os.path.join(METABOLITE_DIR, '{metabolite}'))
 MET_DICT = {}
 KO_FAM_DIR = config['kofamscan_db']
+
 
 for i in METABOLITES: 
     MET_GENES = list(pd.read_csv(os.path.join(METABOLITE_DIR, i), header=None)[0])
@@ -24,10 +29,13 @@ for i in METABOLITES:
 
 rule all:
     input:
-        expand(os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}','done'), metabolite = METABOLITES, genome  = BACT_GENOMES), 
+#        expand(os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}','done'), metabolite = METABOLITES, genome  = BACT_GENOMES), 
+#        expand(os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{mmetsp}','done'), metabolite = METABOLITES, mmetsp  = MMETSP_TRANS),
         expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome  = BACT_GENOMES),
-        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}.csv'), metabolite = METABOLITES),
+        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{mmetsp}.csv'), metabolite = METABOLITES, mmetsp  = MMETSP_TRANS),
+        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}_{bac_euk}.csv'), metabolite = METABOLITES, bac_euk = ['bact', 'mmetsp']),
         os.path.join('GToBacterialTree2', 'GToBacterialTree2.tre')
+
 rule kofamscan:
     input: genome = os.path.join(BACT_GENOMES_DIR, '{genome}.faa'), metabolite_file = os.path.join(METABOLITE_DIR, '{metabolite}') 
     output: final = os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}', 'done'), 
@@ -43,6 +51,30 @@ rule kofamscan:
         done
         touch {output}
         '''
+rule kofamscan_euk: 
+    input: genome = os.path.join(MMETSP_DIR, '{mmetsp}.pep.fa'), metabolite_file = os.path.join(METABOLITE_DIR, '{metabolite}') 
+    output: final = os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{mmetsp}', 'done'), 
+    threads: 15
+    conda: 'envs/kofamscan.yaml'
+    params: tempdir=os.path.join(OUTDIR, 'ko_hmms', '{metabolite}','{mmetsp}')+'/', kofam_dir = os.path.join(KO_FAM_DIR, 'profiles')+'/'
+    shell:
+        '''
+        mkdir -p {params.tempdir}
+        for x in $(cat {input.metabolite_file})
+            do
+            hmmsearch -o /dev/null --tblout {params.tempdir}$x -T 0 --cpu 1 {params.kofam_dir}$x.hmm {input.genome} 
+        done
+        touch {output}
+        '''
+#rule parse_hmmsearch_euk:
+#    input: os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{mmetsp}', 'done')
+ #   output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{mmetsp}.csv')
+  #  params: os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{mmetsp}')
+   # conda:
+  #      "envs/biopython.yaml"
+  #  script:
+  #      "scripts/parse_hmmsearch.py"
+
 
 rule parse_hmmsearch:
     input: os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}', 'done')
@@ -53,12 +85,28 @@ rule parse_hmmsearch:
     script:
         "scripts/parse_hmmsearch.py"
 
-rule create_genome_table:
-    input: expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome = BACT_GENOMES)
-    output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}.csv') 
-    params: os.path.join(OUTDIR, 'ko_tables')
-    script:
-        "scripts/combine_kotables.py"
+rule create_genome_table_bact:
+    input:  genomes = expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome = BACT_GENOMES), 
+    output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}_bact.csv'), 
+    params: 
+        genome_ko_table_dir = os.path.join(OUTDIR, 'ko_tables', '{metabolite}'), 
+        kofamlist = os.path.join(config['kofamscan_db'],'ko_list'),
+        ko_list = os.path.join(METABOLITE_DIR, '{metabolite}'),  header = 'GCF', 
+    shell:
+        """
+        python scripts/combine_kotables2.py {params.kofamlist} {params.ko_list} {params.genome_ko_table_dir} {params.header} {output} 
+        """
+rule create_genome_table_mmetsp:
+    input: genomes =expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{mmetsp}.csv'), metabolite = METABOLITES, mmetsp = MMETSP_TRANS), 
+    output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}_mmetsp.csv')     
+    params:
+        genome_ko_table_dir = os.path.join(OUTDIR, 'ko_tables', '{metabolite}'), 
+        kofamlist = os.path.join(config['kofamscan_db'],'ko_list'), 
+        ko_list = os.path.join(METABOLITE_DIR, '{metabolite}'), header = 'MMETSP',
+    shell:
+        """
+        python scripts/combine_kotables2.py {params.kofamlist} {params.ko_list} {params.genome_ko_table_dir} {params.header} {output}
+        """
 
 rule create_phylogeny:
     input: BACT_ACCESSION_LIST 
