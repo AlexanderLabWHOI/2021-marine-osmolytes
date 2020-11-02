@@ -1,3 +1,4 @@
+mmetsp_directory: /vortexfs1/omics/alexander/data/mmetsp
 bacterial_genomes_directory: MarRef_DBs/proteins
 output_directory: kofamscan
 scratch_directory: /vortexfs1/scratch/halexander
