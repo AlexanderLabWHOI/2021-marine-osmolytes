@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import pandas as pd
 import glob
 import os
@@ -8,7 +9,8 @@ KO_index = pd.read_csv(sys.argv[2], sep='\t', index_col=0).index
 
 out_df = pd.DataFrame(columns=KO_index)
 header = sys.argv[4]
-for csv_file in glob.glob(sys.argv[3]+header+'*csv'):
+for csv_file in glob.glob(os.path.join(sys.argv[3],header+'*csv')):
+    print(csv_file) 
     df = pd.read_csv(csv_file, sep='\t', index_col=0)
     name = os.path.basename(csv_file).strip('.csv')
     for k in KO_index:
