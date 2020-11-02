@@ -26,15 +26,14 @@ for i in METABOLITES:
     MET_GENES = list(pd.read_csv(os.path.join(METABOLITE_DIR, i), header=None)[0])
     MET_DICT[i]=MET_GENES
 
-
 rule all:
     input:
 #        expand(os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}','done'), metabolite = METABOLITES, genome  = BACT_GENOMES), 
 #        expand(os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{mmetsp}','done'), metabolite = METABOLITES, mmetsp  = MMETSP_TRANS),
-        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome  = BACT_GENOMES),
-        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{mmetsp}.csv'), metabolite = METABOLITES, mmetsp  = MMETSP_TRANS),
+#        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{genome}.csv'), metabolite = METABOLITES, genome  = BACT_GENOMES),
+#        expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{mmetsp}.csv'), metabolite = METABOLITES, mmetsp  = MMETSP_TRANS),
         expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}_{bac_euk}.csv'), metabolite = METABOLITES, bac_euk = ['bact', 'mmetsp']),
-        os.path.join('GToBacterialTree2', 'GToBacterialTree2.tre')
+#        os.path.join('GToBacterialTree2', 'GToBacterialTree2.tre')
 
 rule kofamscan:
     input: genome = os.path.join(BACT_GENOMES_DIR, '{genome}.faa'), metabolite_file = os.path.join(METABOLITE_DIR, '{metabolite}') 
@@ -91,11 +90,27 @@ rule create_genome_table_bact:
     params: 
         genome_ko_table_dir = os.path.join(OUTDIR, 'ko_tables', '{metabolite}'), 
         kofamlist = os.path.join(config['kofamscan_db'],'ko_list'),
-        ko_list = os.path.join(METABOLITE_DIR, '{metabolite}'),  header = 'GCF', 
-    shell:
-        """
-        python scripts/combine_kotables2.py {params.kofamlist} {params.ko_list} {params.genome_ko_table_dir} {params.header} {output} 
-        """
+        ko_list = os.path.join(METABOLITE_DIR, '{metabolite}'),  
+        header = 'GCF', 
+    run: 
+        KO_index = pd.read_csv(params['ko_list'], sep='\t', index_col=0, header=None).index 
+        KO_index = list(set(KO_index))
+        kofamlist = pd.read_csv(params['kofamlist'], sep='\t', index_col=0)
+        out_df = pd.DataFrame(columns=KO_index)
+        for csv_file in glob.glob(os.path.join(params['genome_ko_table_dir'], params['header']+'*csv')):
+            df = pd.read_csv(csv_file, sep='\t', index_col=0)
+            for k in KO_index:
+                column = None
+                if kofamlist.loc[k, 'score_type']=='full':
+                    column = 'full_bitscore'
+                elif kofamlist.loc[k, 'score_type']=='domain':
+                    column = 'domain_bitscore'
+                if df.loc[k,column] > float(kofamlist.loc[k,'threshold']):
+                    out_df.loc[csv_file, k]=1
+                else:
+                    out_df.loc[csv_file,k]=0
+        out_df.to_csv(output[0])
+
 rule create_genome_table_mmetsp:
     input: genomes =expand(os.path.join(OUTDIR, 'ko_tables', '{metabolite}', '{mmetsp}.csv'), metabolite = METABOLITES, mmetsp = MMETSP_TRANS), 
     output: os.path.join(OUTDIR, 'ko_tables', '{metabolite}_mmetsp.csv')     
@@ -103,10 +118,25 @@ rule create_genome_table_mmetsp:
         genome_ko_table_dir = os.path.join(OUTDIR, 'ko_tables', '{metabolite}'), 
         kofamlist = os.path.join(config['kofamscan_db'],'ko_list'), 
         ko_list = os.path.join(METABOLITE_DIR, '{metabolite}'), header = 'MMETSP',
-    shell:
-        """
-        python scripts/combine_kotables2.py {params.kofamlist} {params.ko_list} {params.genome_ko_table_dir} {params.header} {output}
-        """
+    run:
+        KO_index = pd.read_csv(params['ko_list'], sep='\t', index_col=0, header=None).index 
+        KO_index = list(set(KO_index))
+        kofamlist = pd.read_csv(params['kofamlist'], sep='\t', index_col=0)
+        out_df = pd.DataFrame(columns=KO_index)
+        for csv_file in glob.glob(os.path.join(params['genome_ko_table_dir'], params['header']+'*csv')):
+            df = pd.read_csv(csv_file, sep='\t', index_col=0)
+            for k in KO_index:
+                column = None
+                if kofamlist.loc[k, 'score_type']=='full':
+                    column = 'full_bitscore'
+                elif kofamlist.loc[k, 'score_type']=='domain':
+                    column = 'domain_bitscore'
+                if df.loc[k,column] > float(kofamlist.loc[k,'threshold']):
+                    out_df.loc[csv_file, k]=1
+                else:
+                    out_df.loc[csv_file,k]=0
+        out_df.to_csv(output[0])
+
 
 rule create_phylogeny:
     input: BACT_ACCESSION_LIST 
