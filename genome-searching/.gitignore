@@ -1,3 +1,4 @@
 .snakemake/
 .ipynb_checkpoints/
 kofamscan/ko_hmms/*
+kofamscan/ko_tables/*/*csv
