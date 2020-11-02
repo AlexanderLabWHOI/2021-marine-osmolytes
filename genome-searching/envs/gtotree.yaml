@@ -1,0 +1,8 @@
+name: gtotree 
+channels:
+    - conda-froge
+    - bioconda
+    - defaults
+    - astrobiomike
+dependencies:    
+    - gtotree 
