@@ -1,0 +1,12 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R00367	S-Adenosyl-L-methionine + Glycine <=> S-Adenosyl-L-homocysteine + Sarcosine	['S-Adenosyl-L-methionine:glycine N-methyltransferase']	['2.1.1.20', '2.1.1.156', '2.1.1.162']	K00552
+R00610	Sarcosine + H2O + Oxygen <=> Glycine + Formaldehyde + Hydrogen peroxide	['sarcosine:oxygen oxidoreductase (demethylating)']	['1.5.3.1']	K00301;K00302;K00303;K00304;K00305;K00306
+R00611	Sarcosine + Electron-transferring flavoprotein + H2O <=> Glycine + Formaldehyde + Reduced electron-transferring flavoprotein	['sarcosine:electron-transfer flavoprotein oxidoreductase (demethylating)']	['1.5.8.3']	K00314
+R01563	N-Carbamoylsarcosine + H2O <=> Sarcosine + CO2 + Ammonia	['N-Carbamoylsarcosine amidohydrolase']	['3.5.1.59']	K08687
+R01564	N,N-Dimethylglycine + H2O + Oxygen <=> Sarcosine + Formaldehyde + Hydrogen peroxide	['N,N-Dimethylglycine:oxygen oxidoreductase (demethylating)']	['1.5.3.10']	K08687
+R01565	N,N-Dimethylglycine + Electron-transferring flavoprotein + H2O <=> Sarcosine + Formaldehyde + Reduced electron-transferring flavoprotein	['N,N-dimethylglycine:electron-transfer flavoprotein oxidoreductase (demethylating)']	['1.5.8.4']	K00315
+R01566	Creatine + H2O <=> Sarcosine + Urea	['Creatine amidinohydrolase']	['3.5.3.3']	K08688
+R05862	Sarcosine + H2O + Oxygen <=> Glyoxylate + Methylamine + Hydrogen peroxide	['sarcosine:oxygen oxidoreductase (deaminating)']	['1.4.3.19']	
+R07227	Acetyl phosphate + Methylamine + Thioredoxin disulfide + H2O <=> Sarcosine + Orthophosphate + Thioredoxin	['acetyl-phosphate methylamine:thioredoxin disulfide oxidoreductase(N-methylglycine-forming)']	['1.21.4.3']	
+R07243	S-Adenosyl-L-methionine + Sarcosine <=> S-Adenosyl-L-homocysteine + N,N-Dimethylglycine	['S-adenosyl-L-methionine:sarcosine N-methyltransferase']	['2.1.1.156', '2.1.1.157', '2.1.1.162']	
+R10061	2 S-Adenosyl-L-methionine + Sarcosine <=> 2 S-Adenosyl-L-homocysteine + Betaine	['S-adenosyl-L-methionine:sarcosine N-methyltransferase [betaine-forming]']	['2.1.1.157']	K18897

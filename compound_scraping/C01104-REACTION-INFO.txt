@@ -1,0 +1,5 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R02512	Trimethylamine N-oxide <=> Dimethylamine + Formaldehyde	['Trimethylamine-N-oxide formaldehyde-lyase']	['4.1.2.32']	K00317
+R02559	Trimethylamine + NAD+ + H2O <=> Trimethylamine N-oxide + NADH + H+	['NADH:trimethylamine-N-oxide oxidoreductase']	['1.6.6.9']	K01188;K05349;K05350;K13032
+R02560	Trimethylamine + FAD + H2O <=> FADH2 + Trimethylamine N-oxide	['NADH:trimethylamine-N-oxide oxidoreductase']	['1.6.6.9']	
+R05623	Trimethylamine + NADPH + H+ + Oxygen <=> Trimethylamine N-oxide + NADP+ + H2O	['N,N,N-trimethylamine,NADPH:oxygen oxidoreductase (N-oxide-forming)']	['1.14.13.148']	K18277

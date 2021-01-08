@@ -1,0 +1,22 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R00015	2 Sucrose <=> D-Glucose + 1F-beta-D-Fructosylsucrose	"[""sucrose:sucrose 1'-beta-D-fructosyltransferase;"", 'sucrose:sucrose', '1F-beta-D-fructosyltransferase']"	['2.4.1.99']	K00161;K00162;K00163;K01568;K01652;K01653;K11258
+R00039	2 Raffinose <=> Lychnose + Sucrose	['raffinose:raffinose 1F-alpha-D-galactosyltransferase']	['2.4.1.166']	
+R00801	Sucrose + H2O <=> D-Fructose + D-Glucose	['sucrose glucohydrolase']	['3.2.1.10', '3.2.1.20', '3.2.1.26', '3.2.1.48']	K01182;K01187;K01193;K01203;K12047;K12316;K12317
+R00802	Sucrose + H2O <=> beta-D-Fructose + alpha-D-Glucose	['sucrose alpha-glucohydrolase']	['3.2.1.20', '3.2.1.26', '3.2.1.48']	K01187;K01193;K01203;K12047;K12316;K12317;K15922
+R00803	Sucrose + Orthophosphate <=> D-Fructose + D-Glucose 1-phosphate	['sucrose:phosphate alpha-D-glucosyltransferase']	['2.4.1.7']	K00690
+R00805	Sucrose 6'-phosphate + H2O <=> Sucrose + Orthophosphate	['sucrose-6F-phosphate phosphohydrolase']	['3.1.3.24']	K07024
+R00806	UDP-glucose + D-Fructose <=> UDP + Sucrose	['UDP-glucose:D-fructose 2-alpha-D-glucosyltransferase']	['2.4.1.13']	K00695
+R00807	Sucrose + FAD <=> 3-Ketosucrose + FADH2	['Sucrose:(acceptor) 3-oxidoreductase']	['1.1.99.13']	K00695
+R00808	Sucrose + Acceptor <=> 3-Ketosucrose + Reduced acceptor	['Sucrose:(acceptor) 3-oxidoreductase']	['1.1.99.13']	
+R00809	UDP-alpha-D-galactose + Sucrose <=> UDP + 6F-alpha-D-Galactosylsucrose	['UDP-alpha-D-galactose:sucrose 6F-alpha-D-galactosyltransferase']	['2.4.1.167']	
+R00810	Sucrose <=> Palatinose	['Sucrose glucosylmutase']	['5.4.99.11']	
+R00811	Sucrose + Protein N(pi)-phospho-L-histidine <=> Sucrose 6-phosphate + Protein histidine	['protein-Npi-phospho-L-histidine:sugar phosphotransferase']	['2.7.1.211']	K02808;K02809;K02810
+R01103	Raffinose + H2O <=> D-Galactose + Sucrose	['Raffinose galactohydrolase']	['3.2.1.22']	K01189;K07406;K07407
+R01823	Sucrose + Amylose <=> D-Fructose + Amylose	['Sucrose:1,4-alpha-D-glucan 4-alpha-D-glucosyltransferase']	['2.4.1.4']	K05341
+R02120	Sucrose + Dextran <=> D-Fructose + Dextran	['Sucrose:1,6-alpha-D-glucan 6-alpha-D-glucosyltransferase']	['2.4.1.5', '2.4.1.125']	K00689
+R02411	alpha-D-Galactosyl-(1->3)-1D-myo-inositol + Sucrose <=> myo-Inositol + Raffinose	['1-alpha-D-Galactosyl-myo-inositol:sucrose 6-alpha-D-galactosyltransferase']	['2.4.1.82']	K06617
+R04194	Sucrose + (2,1-beta-D-Fructosyl)n <=> D-Glucose + (2,1-beta-D-Fructosyl)n	['Sucrose:2,1-beta-D-fructan 1-beta-D-fructosyltransferase']	['2.4.1.9']	K20811
+R05140	D-Glucose + Levan <=> Sucrose + Levan	['sucrose:2,6-beta-D-fructan 6-beta-D-fructosyltransferase']	['2.4.1.10']	K00692
+R07256	NDP-glucose + D-Fructose <=> NDP + Sucrose	['NDP-glucose:D-fructose 2-alpha-D-glucosyltransferase']	['2.4.1.13']	
+R08616	2 Raffinose <=> Isolychnose + Sucrose	['raffinose:raffinose 3F-alpha-D-galactosyltransferase']	['2.4.1.166']	
+R08676	ADP + Sucrose <=> ADP-glucose + D-Fructose	['ADP-glucose:D-fructose 2-alpha-D-glucosyltransferase']	['2.4.1.13']	K12154;K12155

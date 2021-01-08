@@ -1,0 +1,10 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R02565	Betaine aldehyde + NAD+ + H2O <=> Betaine + NADH + 2 H+	['p-cumic alcohol:NAD+ oxidoreductase']	['1.2.1.8']	K00130;K14085
+R02566	Betaine aldehyde + NADP+ + H2O <=> Betaine + NADPH + 2 H+	['p-Cumic alcohol:NADP+ oxidoreductase']	['1.2.1.8']	K00130;K14085
+R02821	Betaine + L-Homocysteine <=> N,N-Dimethylglycine + L-Methionine	['Trimethylaminoacetate:L-homosysteine S-methyltransferase']	['2.1.1.5']	K00544
+R07228	Acetyl phosphate + Trimethylamine + Thioredoxin disulfide + H2O <=> Betaine + Orthophosphate + Thioredoxin	['acetyl-phosphate trimethylamine:thioredoxin disulfide oxidoreductase(N,N,N-trimethylglycine-forming)']	['1.21.4.4']	
+R07244	S-Adenosyl-L-methionine + N,N-Dimethylglycine <=> S-Adenosyl-L-homocysteine + Betaine	['S-adenosyl-L-methionine:N,N-dimethylglycine N-methyltransferase']	['2.1.1.157', '2.1.1.161', '2.1.1.162']	K13042
+R08211	Betaine aldehyde + Oxygen + H2O <=> Betaine + Hydrogen peroxide	['betaine aldehyde:oxygen oxidoreductase']	['1.1.3.17']	K17755
+R08212	Choline + 2 Oxygen + H2O <=> Betaine + 2 Hydrogen peroxide	['choline oxidase']	['1.1.3.17']	K17755
+R10061	2 S-Adenosyl-L-methionine + Sarcosine <=> 2 S-Adenosyl-L-homocysteine + Betaine	['S-adenosyl-L-methionine:sarcosine N-methyltransferase [betaine-forming]']	['2.1.1.157']	K18897
+R10062	3 S-Adenosyl-L-methionine + Glycine <=> 3 S-Adenosyl-L-homocysteine + Betaine	['S-adenosyl-L-methionine:glycine N-methyltransferase [betaine-forming]']	['2.1.1.162']	K18897

@@ -1,0 +1,17 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R00135	Peptide + H2O <=> L-Proline + Peptide		['3.4.11.5']	K01259;K11142
+R00671	L-Ornithine <=> L-Proline + Ammonia	['L-ornithine ammonia-lyase (cyclizing; L-proline-forming)']	['4.3.1.12']	K01750
+R01246	L-Proline + NAD+ <=> 1-Pyrroline-2-carboxylate + NADH + H+	['L-proline:NAD+ 2-oxidoreductase']	['1.5.1.1', '1.5.1.49']	K19742;K19743
+R01248	L-Proline + NAD+ <=> (S)-1-Pyrroline-5-carboxylate + NADH + H+	['L-Proline:NAD+ 5-oxidoreductase']	['1.5.1.2']	K00286
+R01249	L-Proline + NADP+ <=> 1-Pyrroline-2-carboxylate + NADPH + H+	['L-proline:NADP+ 2-oxidoreductase']	['1.5.1.1', '1.5.1.21', '1.5.1.49']	K19742;K19743
+R01251	L-Proline + NADP+ <=> (S)-1-Pyrroline-5-carboxylate + NADPH + H+	['L-Proline:NADP+ 5-oxidoreductase']	['1.5.1.2']	K00286
+R01252	L-Proline + 2-Oxoglutarate + Oxygen <=> Hydroxyproline + Succinate + CO2	['L-Proline,2-oxoglutarate:oxygen oxidoreductase (4-hydroxylating)']	['1.14.11.2', '1.14.11.57']	K00472
+R01253	L-Proline + Quinone <=> (S)-1-Pyrroline-5-carboxylate + Hydroquinone	['L-proline:quinone oxidoreductase']	['1.5.5.2']	K13821
+R01255	L-Proline <=> D-Proline	['proline racemase']	['5.1.1.4']	K01777
+R03661	ATP + L-Proline + tRNA(Pro) <=> AMP + Diphosphate + L-Prolyl-tRNA(Pro)	['L-proline:tRNA(Pro) ligase (AMP-forming)']	['6.1.1.15']	K01881;K14163
+R06746	L-Proline + Peptidyl-carrier protein + ATP <=> L-Prolyl-[pcp] + AMP + Diphosphate			K12719;K12720
+R09572	L-Proline + 2-Oxoglutarate + Oxygen <=> cis-3-Hydroxy-L-proline + Succinate + CO2	['L-proline,2-oxoglutarate:oxygen oxidoreductase (3-hydroxylating)']	['1.14.11.28']	
+R09650	L-Prolinamide + H2O <=> L-Proline + Ammonia	['L-prolinamide amidohydrolase']	['3.5.1.101']	
+R10507	L-Proline + FAD <=> (S)-1-Pyrroline-5-carboxylate + FADH2	['L-proline:(acceptor) oxidoreductase']	['1.5.-.-']	K00318;K18318;K18319
+R10661	L-Tryptophan + L-Proline + 2 ATP <=> Brevianamide F + 2 AMP + 2 Diphosphate			K18281
+R11594	L-Proline + 2-Oxoglutarate + Oxygen <=> cis-4-Hydroxy-L-proline + Succinate + CO2	['L-proline,2-oxoglutarate:oxygen oxidoreductase (cis-4-hydroxylating)']	['1.14.11.56']	K21618

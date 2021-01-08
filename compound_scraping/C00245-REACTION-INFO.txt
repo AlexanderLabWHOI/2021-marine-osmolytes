@@ -1,0 +1,16 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R01681	Hypotaurine + NAD+ + H2O <=> Taurine + NADH + H+	['hypotaurine:NAD+ oxidoreductase']	['1.8.1.3']	
+R01682	L-Cysteate <=> Taurine + CO2	['3-Sulfo-L-alanine carboxy-lyase (taurine-forming)']	['4.1.1.15', '4.1.1.29']	K01580;K01594
+R01683	Tauropine + NAD+ + H2O <=> Taurine + Pyruvate + NADH + H+	['tauropine:NAD+ oxidoreductase (taurine-forming)']	['1.5.1.23']	K01580;K01594
+R01684	Taurine + 2-Oxoglutarate <=> Sulfoacetaldehyde + L-Glutamate	['taurine:2-oxoglutarate aminotransferase']	['2.6.1.55']	K15372
+R01685	Taurine + H2O + 2 Ferricytochrome c <=> Sulfoacetaldehyde + Ammonia + 2 Ferrocytochrome c + 2 H+	['taurine:ferricytochrome-c oxidoreductase (deaminating)']	['1.4.2.-']	K07255;K07256
+R01686	Taurine + L-Arginine <=> Taurocyamine + L-Ornithine	['L-arginine:taurine amidinotransferase']	['2.1.4.1']	K07255;K07256
+R01687	(5-L-Glutamyl)-peptide + Taurine <=> Peptide + 5-L-Glutamyl-taurine	['(5-L-glutamyl)-peptide:taurine 5-glutamyltransferase']	['2.3.2.2']	K00681;K18592
+R02797	Taurocholate + H2O <=> Cholic acid + Taurine	['Taurocholate amidohydrolase']	['3.5.1.24']	K01442
+R03720	Choloyl-CoA + Taurine <=> CoA + Taurocholate	['Choloyl-CoA:glycine N-choloyltransferase']	['2.3.1.65']	K00659
+R03977	Taurochenodeoxycholate + H2O <=> Chenodeoxycholate + Taurine	['chenodeoxycholoyltaurine amidohydrolase']	['3.5.1.24', '3.5.1.74']	K01442
+R04487	Taurodeoxycholate + H2O <=> Deoxycholic acid + Taurine	['Taurodeoxycholate amidohydrolase']	['3.5.1.24']	K01442
+R05320	Taurine + 2-Oxoglutarate + Oxygen <=> Sulfite + Aminoacetaldehyde + Succinate + CO2	['Taurine, 2-oxoglutarate:O2 oxidoreductase (sulfite-forming)']	['1.14.11.17']	K03119
+R05652	Taurine + Pyruvate <=> Sulfoacetaldehyde + L-Alanine	['taurine:pyruvate aminotransferase']	['2.6.1.77']	K03851
+R07167	Taurine + H2O + Acceptor <=> Sulfoacetaldehyde + Ammonia + Reduced acceptor	['taurine:(acceptor) oxidoreductase (deaminating)']	['1.4.99.2']	
+R08745	Chenodeoxycholoyl-CoA + Taurine <=> Taurochenodeoxycholate + CoA	['3alpha,7alpha-dihydroxy-5beta-cholanoyl-CoA:taurine N-choloyltransferase;', 'chenodeoxycholoyl-CoA:taurine', 'N-chenodeoxycholoyltransferase']	['2.3.1.65']	K00659

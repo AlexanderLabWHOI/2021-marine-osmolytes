@@ -1,0 +1,2 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R01721	S-Adenosyl-L-methionine + Nicotinate <=> S-Adenosyl-L-homocysteine + N-Methylnicotinate	['S-Adenosyl-L-methionine:nicotinate N-methyltransferase']	['2.1.1.7']	K20445;K20446;K20447;K20448

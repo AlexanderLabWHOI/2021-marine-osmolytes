@@ -1,0 +1,2 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R08050	Ectoine + 2-Oxoglutarate + Oxygen <=> 5-Hydroxyectoine + Succinate + CO2		['1.14.11.55']	K10674

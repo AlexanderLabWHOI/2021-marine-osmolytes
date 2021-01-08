@@ -1,0 +1,4 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R06979	N(gamma)-Acetyldiaminobutyrate <=> H2O + Ectoine	['Ectoine hydro-lyase']	['4.2.1.108']	K06720
+R08050	Ectoine + 2-Oxoglutarate + Oxygen <=> 5-Hydroxyectoine + Succinate + CO2		['1.14.11.55']	K10674
+R09800	Ectoine + H2O <=> N-alpha-Acetyl-L-2,4-diaminobutyrate	['ectoine aminohydrolase']	['3.5.4.44']	K15783

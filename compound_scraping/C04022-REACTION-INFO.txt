@@ -1,0 +1,3 @@
+	DEFINITION	NAME	ENZYME	ORTHOLOGY
+R02574	S,S-Dimethyl-beta-propiothetin <=> Dimethyl sulfide + Acrylic acid	['S,S-Dimethyl-beta-propiothetin dimethyl-sulfide-lyase']	['4.4.1.3']	K16953
+R10333	S,S-Dimethyl-beta-propiothetin + Tetrahydrofolate <=> 3-(Methylthio)propanoate + 5-Methyltetrahydrofolate	['S,S-dimethyl-beta-propiothetin:tetrahydrofolate S-methyltransferase']	['2.1.1.269']	K17486
