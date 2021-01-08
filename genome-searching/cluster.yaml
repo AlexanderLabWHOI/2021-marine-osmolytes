@@ -19,7 +19,7 @@ __default__:
             nodes: "-N {}"      # ntasks: 24
 
 kofamscan: 
-    queue: compute 
-    threads: 8
-    mem: 20 
+    queue: scavenger 
+    threads: 2 
+    mem: 10 
     time: 120
