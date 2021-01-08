@@ -38,7 +38,7 @@ rule all:
 rule kofamscan:
     input: genome = os.path.join(BACT_GENOMES_DIR, '{genome}.faa'), metabolite_file = os.path.join(METABOLITE_DIR, '{metabolite}') 
     output: final = os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{genome}', 'done'), 
-    threads: 15
+    threads: 2
     conda: 'envs/kofamscan.yaml'
     params: tempdir=os.path.join(OUTDIR, 'ko_hmms', '{metabolite}','{genome}')+'/', kofam_dir = os.path.join(KO_FAM_DIR, 'profiles')+'/'
     shell:
@@ -46,7 +46,7 @@ rule kofamscan:
         mkdir -p {params.tempdir}
         for x in $(cat {input.metabolite_file})
             do
-            hmmsearch -o /dev/null --tblout {params.tempdir}$x -T 0 --cpu 1 {params.kofam_dir}$x.hmm {input.genome} 
+            hmmsearch -o /dev/null --tblout {params.tempdir}$x -T 0 --cpu 2 {params.kofam_dir}$x.hmm {input.genome} 
         done
         touch {output}
         '''
@@ -103,9 +103,14 @@ rule create_genome_table_bact:
                 column = None
                 if kofamlist.loc[k, 'score_type']=='full':
                     column = 'full_bitscore'
+                    ref_val = float(kofamlist.loc[k,'threshold'])
                 elif kofamlist.loc[k, 'score_type']=='domain':
                     column = 'domain_bitscore'
-                if df.loc[k,column] > float(kofamlist.loc[k,'threshold']):
+                    ref_val = float(kofamlist.loc[k,'threshold'])
+                else:
+                    column = 'full_bitscore'
+                    ref_val = 200 
+                if df.loc[k,column] > ref_val:
                     out_df.loc[csv_file, k]=1
                 else:
                     out_df.loc[csv_file,k]=0
@@ -129,9 +134,14 @@ rule create_genome_table_mmetsp:
                 column = None
                 if kofamlist.loc[k, 'score_type']=='full':
                     column = 'full_bitscore'
+                    ref_val = float(kofamlist.loc[k,'threshold'])
                 elif kofamlist.loc[k, 'score_type']=='domain':
                     column = 'domain_bitscore'
-                if df.loc[k,column] > float(kofamlist.loc[k,'threshold']):
+                    ref_val = float(kofamlist.loc[k,'threshold'])
+                else:
+                    column = 'full_bitscore'
+                    ref_val = 200
+                if df.loc[k,column] > ref_val:
                     out_df.loc[csv_file, k]=1
                 else:
                     out_df.loc[csv_file,k]=0
