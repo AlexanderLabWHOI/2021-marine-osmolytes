@@ -1,0 +1,172 @@
+
+
+               GToTree v1.5.36 (github.com/AstrobioMike/GToTree)
+
+
+ ---------------------------------  RUN INFO  --------------------------------- 
+
+    Command entered:
+    /vortexfs1/home/halexander/.conda/envs/gtotree/bin/GToTree -a MarRef_DBs/MarRef_accessions_GenBank_only.txt -H Universal -t -j 50 -o GToBacterialTree2
+
+
+    Input genome sources include:
+      - NCBI accessions listed in MarRef_DBs/MarRef_accessions_GenBank_only.txt (908 genomes)
+
+                             [0;32mTotal input genomes: 908[0m
+
+    HMM source to be used:
+      - Universal_Hug_et_al (15 targets)
+
+
+    Options set:
+      - The output directory has been set to "GToBacterialTree2/".
+      - Taxonkit will be used to add NCBI taxonomy info to labels where possible.
+      - Number of jobs to run during parallelizable steps has been set to 50.
+
+ ############################################################################## 
+ ####          Working on the genomes provided as NCBI accessions          ####
+ ############################################################################## 
+
+
+		  [0;32mDownloading RefSeq assembly summaries...[0m
+
+
+  [0;33m********************************** [0mNOTICE [0;33m**********************************[0m  
+    11 accession(s) not successfully found at NCBI.
+
+    Reported in "GToBacterialTree2/run_files/NCBI_accessions_not_found.txt".
+  [0;33m****************************************************************************[0m  
+
+________________________________________________________________________________
+
+
+     ******************************* [0;32mUPDATE[0m *******************************  
+        Of the input genomes provided by NCBI accession:
+
+          [0;33m11 accession(s) not found at NCBI.[0m
+          Reported in "GToBacterialTree2/run_files/NCBI_accessions_not_found.txt".
+
+        897 of the total 908 input accessions had their genomes successfully
+        downloaded and searched.
+     ********************************************************************** 
+
+
+ ############################################################################## 
+ ####                     Filtering genes by length                        ####
+ ############################################################################## 
+
+     Keeping those with lengths within 20% of the median for the gene set.
+
+           It is currently 01:45 PM; the process started at 01:43 PM.
+               Current process runtime: 0 hours and 1 minutes.
+
+________________________________________________________________________________ 
+
+
+
+ ############################################################################## 
+ ####                Filtering genomes with too few hits                   ####
+ ############################################################################## 
+
+     Removing those with fewer than 50% of the total SCGs targeted.
+
+           It is currently 01:45 PM; the process started at 01:43 PM.
+               Current process runtime: 0 hours and 1 minutes.
+
+  [0;33m********************************** [0mNOTICE [0;33m**********************************[0m  
+    27 genome(s) removed from analysis due to having too few hits.
+
+    Reported in "GToBacterialTree2/run_files/Genomes_removed_for_too_few_hits.tsv".
+  [0;33m****************************************************************************[0m  
+
+________________________________________________________________________________
+
+
+
+ ############################################################################## 
+ ####          Aligning, trimming, and inserting gap-sequences             ####
+ ############################################################################## 
+
+           It is currently 01:45 PM; the process started at 01:43 PM.
+               Current process runtime: 0 hours and 1 minutes.
+
+
+
+________________________________________________________________________________
+
+
+
+ ############################################################################## 
+ ####                  Catting all alignments together                     ####
+ ############################################################################## 
+
+           It is currently 01:46 PM; the process started at 01:43 PM.
+               Current process runtime: 0 hours and 2 minutes.
+
+
+________________________________________________________________________________
+
+
+
+ ############################################################################## 
+ ####                   Adding more informative headers                    ####
+ ############################################################################## 
+
+
+________________________________________________________________________________
+
+
+
+ ############################################################################## 
+ ####                          Running FastTree                            ####
+ ############################################################################## 
+
+           It is currently 01:46 PM; the process started at 01:43 PM.
+               Current process runtime: 0 hours and 3 minutes.
+
+
+
+#################################################################################
+####                                 [0;32mDone!![0m                                  ####
+#################################################################################
+
+  Overall, 870 genomes of the input 908 were retained (see notes below).
+
+    Tree written to:
+        [0;32mGToBacterialTree2/GToBacterialTree2.tre[0m
+
+    Alignment written to:
+        [0;32mGToBacterialTree2/Aligned_SCGs_mod_names.faa[0m
+
+    Main genomes summary table with comp./redund. estimates written to:
+        [0;32mGToBacterialTree2/Genomes_summary_info.tsv[0m
+
+    Summary table with hits per target gene per genome written to:
+        [0;32mGToBacterialTree2/SCG_hit_counts.tsv[0m
+
+    Partitions (for downstream use with mixed-model treeing) written to:
+        [0;32mGToBacterialTree2/run_files/Partitions.txt[0m
+
+ _______________________________________________________________________________
+
+  Notes:
+
+        11 accession(s) not successfully found at NCBI.
+        27 genome(s) removed due to having too few hits to the targeted SCGs.
+        4 genome(s) had an estimated redundancy of >= 10%.
+
+    Reported along with additional informative run files in:
+        [0;32mGToBacterialTree2/run_files/[0m
+
+ _______________________________________________________________________________
+
+    Log file written to:
+        [0;32mGToBacterialTree2/gtotree-runlog.txt[0m
+
+    Programs used and their citations have been written to:
+        [0;32mGToBacterialTree2/citations.txt[0m
+
+
+                                         Total process runtime: 0 hours and 5 minutes.
+                                                      [0;32mHappy Thursday :)[0m
+
