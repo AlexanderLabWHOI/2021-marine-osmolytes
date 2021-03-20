@@ -1,54 +1,54 @@
-,MATOU_total,OM-RGC_total,MATOU_hmmpass,OM-RGC_hmmpass
-K00130,52672,69831,54,259
-K17742,45896,154362,139,11
-K10227,123,1864,10,276
-K00008,20555,43624,469,12
-K00315,12017,58388,105,810
-K08261,44855,152543,0,0
-K17755,7629,19487,0,0
-K00305,61,4856,11,544
-K00544,9705,7613,4267,1282
-K00011,37518,4645,158,0
-K19270,3590,7923,5,9
-K05847,56060,270879,16,398
-K06720,171,453,121,412
-K00499,2063,18492,40,472
-K10229,459,13151,3,254
-K00314,10458,48917,297,222
-K00304,83,3285,33,2018
-K05845,64,546,61,533
-K02798,57,1670,3,10
-K02000,40866,246533,50,2163
-K02001,515,11317,86,3910
-K02002,426,6572,102,2018
-K14085,28079,57171,384,19
-K10111,57487,280135,6,427
-K18897,14034,22031,86,162
-K00007,904,1714,0,9
-K02783,8,19,6,19
-K24204,3640,13520,39,115
-K00303,8364,50906,27,2055
-K00309,9059,53859,2,27
-K10674,6069,23419,50,789
-K15783,3172,24888,14,841
-K07406,46,1869,1,459
-K00009,408,1578,76,182
-K19633,898,1627,0,0
-K24071,6027,2456,2,5
-K10228,346,11132,5,240
-K02782,23,60,7,49
-K18896,1741,8452,20,153
-K10112,61243,288193,21,1174
-K11440,2988,11965,0,0
-K05846,379,10857,38,937
-K00045,1349,1866,14,228
-K00594,1116,1522,5,35
-K00302,6974,51679,1,269
-K01189,8972,393,12,0
-K02781,7,46,6,44
-K07407,10260,1084,6275,773
-K02800,75,321,43,99
-K00306,2895,14922,87,17
-K13042,1675,799,2,14
-K00108,13425,23503,826,5052
-K00301,3726,19084,1,117
+,MATOU_total,OM-RGC_total,MATOU_hmmpass,OM-RGC_hmmpass,threshold,alen,definition
+K00130,52672,69831,54,259,668.20,2518,betaine-aldehyde dehydrogenase [EC:1.2.1.8]
+K17742,45896,154362,139,11,304.87,1299,sorbose reductase [EC:1.1.1.289]
+K10227,123,1864,10,276,375.03,1488,sorbitol/mannitol transport system substrate-binding protein
+K00008,20555,43624,469,12,388.50,3441,L-iditol 2-dehydrogenase [EC:1.1.1.14]
+K00315,12017,58388,105,810,913.03,3052,dimethylglycine dehydrogenase [EC:1.5.8.4]
+K08261,44855,152543,0,0,456.33,309,D-sorbitol dehydrogenase (acceptor) [EC:1.1.99.21]
+K17755,7629,19487,0,0,816.17,641,choline oxidase [EC:1.1.3.17]
+K00305,61,4856,11,544,132.53,622,"sarcosine oxidase, subunit gamma [EC:1.5.3.1]"
+K00544,9705,7613,4267,1282,181.53,1223,betaine-homocysteine S-methyltransferase [EC:2.1.1.5]
+K00011,37518,4645,158,0,535.23,1533,aldehyde reductase [EC:1.1.1.21]
+K19270,3590,7923,5,9,218.43,959,mannitol-1-/sugar-/sorbitol-6-phosphatase [EC:3.1.3.22 3.1.3.23 3.1.3.50]
+K05847,56060,270879,16,398,355.80,1969,osmoprotectant transport system ATP-binding protein [EC:7.6.2.9]
+K06720,171,453,121,412,95.40,346,L-ectoine synthase [EC:4.2.1.108]
+K00499,2063,18492,40,472,318.73,1611,choline monooxygenase [EC:1.14.15.7]
+K10229,459,13151,3,254,292.73,396,sorbitol/mannitol transport system permease protein
+K00314,10458,48917,297,222,753.67,2914,sarcosine dehydrogenase [EC:1.5.8.3]
+K00304,83,3285,33,2018,110.77,296,"sarcosine oxidase, subunit delta [EC:1.5.3.1]"
+K05845,64,546,61,533,67.83,2796,osmoprotectant transport system substrate-binding protein
+K02798,57,1670,3,10,168.90,265,mannitol PTS system EIIA component [EC:2.7.1.197]
+K02000,40866,246533,50,2163,412.83,1901,glycine betaine/proline transport system ATP-binding protein [EC:7.6.2.9]
+K02001,515,11317,86,3910,265.60,4474,glycine betaine/proline transport system permease protein
+K02002,426,6572,102,2018,124.23,4227,glycine betaine/proline transport system substrate-binding protein
+K14085,28079,57171,384,19,777.43,1314,aldehyde dehydrogenase family 7 member A1 [EC:1.2.1.31 1.2.1.8 1.2.1.3]
+K10111,57487,280135,6,427,534.50,1061,multiple sugar transport system ATP-binding protein [EC:3.6.3.-]
+K18897,14034,22031,86,162,224.87,378,sarcosine/dimethylglycine N-methyltransferase [EC:2.1.1.157]
+K00007,904,1714,0,9,537.57,823,D-arabinitol 4-dehydrogenase [EC:1.1.1.11]
+K02783,8,19,6,19,124.97,389,glucitol/sorbitol PTS system EIIC component
+K24204,3640,13520,39,115,218.73,373,mannitol-1-/sugar-/sorbitol-6-/2-deoxyglucose-6-phosphatase [EC:3.1.3.22 3.1.3.23 3.1.3.50 3.1.3.68]
+K00303,8364,50906,27,2055,313.83,1792,"sarcosine oxidase, subunit beta [EC:1.5.3.1]"
+K00309,9059,53859,2,27,907.87,1426,dimethylglycine oxidase [EC:1.5.3.10]
+K10674,6069,23419,50,789,202.97,832,ectoine hydroxylase [EC:1.14.11.55]
+K15783,3172,24888,14,841,392.47,709,ectoine hydrolase [EC:3.5.4.44]
+K07406,46,1869,1,459,371.60,1369,alpha-galactosidase [EC:3.2.1.22]
+K00009,408,1578,76,182,145.73,1595,mannitol-1-phosphate 5-dehydrogenase [EC:1.1.1.17]
+K19633,898,1627,0,0,881.33,509,sorbose reductase [EC:1.1.1.289]
+K24071,6027,2456,2,5,790.23,604,glycine/sarcosine/dimethylglycine N-methyltransferase [EC:2.1.1.156 2.1.1.157]
+K10228,346,11132,5,240,283.40,582,sorbitol/mannitol transport system permease protein
+K02782,23,60,7,49,174.07,773,glucitol/sorbitol PTS system EIIB component [EC:2.7.1.198]
+K18896,1741,8452,20,153,169.77,446,glycine/sarcosine N-methyltransferase [EC:2.1.1.156]
+K10112,61243,288193,21,1174,521.70,3670,multiple sugar transport system ATP-binding protein
+K11440,2988,11965,0,0,493.83,444,choline dehydrogenase [EC:1.1.1.1]
+K05846,379,10857,38,937,174.33,3422,osmoprotectant transport system permease protein
+K00045,1349,1866,14,228,625.10,1206,mannitol 2-dehydrogenase [EC:1.1.1.67]
+K00594,1116,1522,5,35,483.00,1146,alditol oxidase [EC:1.1.3.41]
+K00302,6974,51679,1,269,1290.97,2569,"sarcosine oxidase, subunit alpha [EC:1.5.3.1]"
+K01189,8972,393,12,0,621.87,880,alpha-galactosidase [EC:3.2.1.22]
+K02781,7,46,6,44,67.60,265,glucitol/sorbitol PTS system EIIA component [EC:2.7.1.198]
+K07407,10260,1084,6275,773,86.57,9008,alpha-galactosidase [EC:3.2.1.22]
+K02800,75,321,43,99,128.90,2107,mannitol PTS system EIICBA or EIICB component [EC:2.7.1.197]
+K00306,2895,14922,87,17,295.60,3217,sarcosine oxidase / L-pipecolate oxidase [EC:1.5.3.1 1.5.3.7]
+K13042,1675,799,2,14,502.27,289,dimethylglycine N-methyltransferase [EC:2.1.1.161]
+K00108,13425,23503,826,5052,450.00,8633,choline dehydrogenase [EC:1.1.99.1]
+K00301,3726,19084,1,117,352.53,1640,sarcosine oxidase [EC:1.5.3.1]
