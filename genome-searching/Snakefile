@@ -50,6 +50,7 @@ rule kofamscan:
         done
         touch {output}
         '''
+
 rule kofamscan_euk: 
     input: genome = os.path.join(MMETSP_DIR, '{mmetsp}.pep.fa'), metabolite_file = os.path.join(METABOLITE_DIR, '{metabolite}') 
     output: final = os.path.join(OUTDIR, 'ko_hmms', '{metabolite}', '{mmetsp}', 'done'), 
